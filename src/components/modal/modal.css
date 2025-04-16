@@ -1,4 +1,4 @@
-.fullScreen {
+.full-screen {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -12,12 +12,13 @@
 .modal {
   position: absolute;
   background-color: rgb(252, 252, 252);
-  width: 400px;
+  width: 200px;
   min-height: 100px;
   /* top: 10%;
   left: 50%; */
   border: 1px solid #000;
   border-radius: 10px;
+  padding: 5px 15px;
 }
 
 .div-modal {
@@ -29,7 +30,21 @@
 }
 
 .title-modal {
-    margin-top: 10px;
+    margin: 10px 0;
     /* padding: 0 auto; */
     text-align: center;
+}
+
+.input-text-modal {
+  border: 1px solid #000;
+  /* border-radius: 10px; */
+  padding: 10px;
+}
+
+.btn-modal {
+  margin: 10px auto;
+  width: 150px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 5px 10px;
 }
