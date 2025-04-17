@@ -2,14 +2,21 @@
 import '../components/chat/chat';
 import '../components/modal/modal';
 
-(async () => {
-  const request = fetch('http://localhost:3000');
+// не могу получить список уже зарегистрированных пользователей от сервера
+// import { UserStateApi } from '../components/UserStateApi';
+// window.api = new UserStateApi('http://localhost:3000/new-user');
+// const result = api.get();
+// console.log(result);
 
-  const result = await request;
+// let inputForm = document.querySelector('.form-input');
+// console.log(inputForm);
 
-  console.log(result);
-
-  // const text = await result.text();
-
-  // console.log(text);
-})();
+// inputForm.addEventListener('keypress', function(event) {
+//   if (event.key === 'Enter') {
+//       event.preventDefault();
+//       const inputText = document.querySelector('.input-text');
+//       console.log(inputText.value);
+//   }
+// });
+// inputForm.addEventListener('click',);
+// const inputText = document.querySelector('form-input');
