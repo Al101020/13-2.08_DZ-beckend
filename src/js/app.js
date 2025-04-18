@@ -2,21 +2,34 @@
 import '../components/chat/chat';
 import '../components/modal/modal';
 
-// не могу получить список уже зарегистрированных пользователей от сервера
-// import { UserStateApi } from '../components/UserStateApi';
-// window.api = new UserStateApi('http://localhost:3000/new-user');
-// const result = api.get();
-// console.log(result);
+// не могу получить список уже зарегистрированных пользователей от сервера?
 
-// let inputForm = document.querySelector('.form-input');
-// console.log(inputForm);
+// const ws = new WebSocket('ws://localhost:3000/ws');
 
-// inputForm.addEventListener('keypress', function(event) {
-//   if (event.key === 'Enter') {
-//       event.preventDefault();
-//       const inputText = document.querySelector('.input-text');
-//       console.log(inputText.value);
-//   }
+// ws.addEventListener('open', (e) => {
+//   console.log(e);
+
+//   console.log('ws open');
 // });
-// inputForm.addEventListener('click',);
-// const inputText = document.querySelector('form-input');
+
+// ws.addEventListener('close', (e) => {
+//   console.log(e);
+
+//   console.log('ws close');
+// });
+
+// ws.addEventListener('error', (e) => {
+//   console.log(e);
+
+//   console.log('ws error');
+// });
+
+// ws.addEventListener('message', (e) => {
+//   console.log(e);
+
+//   console.log('ws message');
+// });
+
+// const chat = document.querySelector('.chat');
+// const chatMessage = document.querySelector('.chat-message');
+// const chatSend = document.querySelector('chat-send');
