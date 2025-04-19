@@ -3,6 +3,7 @@
 export default class UserStateApi {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
+    this.yuo = null;
   }
 
   async add(name) {
@@ -17,7 +18,10 @@ export default class UserStateApi {
     const json = await result.json();
 
     const { status } = json;
+    const { user } = json;
+    this.yuo = user;
 
+    console.log(user);
     console.log(status);
   }
 

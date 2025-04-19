@@ -2,6 +2,10 @@
 import '../components/chat/chat';
 import '../components/modal/modal';
 
+// import UserStateApi from '../components/UserStateApi';
+// const userStateApi = new UserStateApi;
+// console.log(userStateApi.yuo);
+
 // не могу получить список уже зарегистрированных пользователей от сервера?
 
 // const ws = new WebSocket('ws://localhost:3000/ws');

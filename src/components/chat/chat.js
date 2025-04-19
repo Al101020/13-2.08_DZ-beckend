@@ -9,18 +9,7 @@ function chat() {
   windowChat.id = 'window-chat';
   const divUsers = document.createElement('div');
   divUsers.id = 'users';
-  const divYou = document.createElement('div'); // добовляем себя
-  divYou.classList.add('user');
-  const div_ = document.createElement('div');
-  div_.classList.add('user');
-  div_.textContent = '-';
-  divYou.appendChild(div_);
-  const You = document.createElement('div');
-  You.classList.add('inline');
-  You.classList.add('niсkName');
-  You.textContent = 'You';
-  divYou.appendChild(You);
-  divUsers.appendChild(divYou);
+
   windowChat.appendChild(divUsers);
   const divChat = document.createElement('div');
   divChat.id = 'chat';
