@@ -7,22 +7,27 @@ export default class UserStateApi {
   }
 
   async add(name) {
-    const request = fetch(this.apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(name),
-    });
-    const result = await request;
-    const json = await result.json();
+    try {
+      const request = fetch(this.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(name),
+      });
 
-    const { status } = json;
-    const { user } = json;
-    this.yuo = user;
+      const result = await request;
+      const json = await result.json();
 
-    console.log(user);
-    console.log(status);
+      const { status } = json;
+      const { user } = json;
+      this.yuo = user;
+
+      // console.log(user);
+      console.log(status);
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }
   }
 
   // как получить список зарегистрированных пользователей?

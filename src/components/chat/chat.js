@@ -24,22 +24,15 @@ function chat() {
   const input = document.createElement('input');
   input.classList.add('input-text');
   input.type = 'text';
-  // ------------------------------------------------------
-  input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      const inputText = document.querySelector('.input-text').value;
-      console.log(inputText);
-
-      const message = document.createElement('div');
-      message.classList.add('message-my');
-      message.textContent = inputText;
-      messages.appendChild(message);
-    }
-  });
   form.appendChild(input);
   inputMessage.appendChild(form);
   divChat.appendChild(inputMessage);
+  // ------------------------------------------------------
+  // const chatInfo = document.createElement('h6');
+  // chatInfo.classList.add('chat-info');
+  // chatInfo.textContent = 'Введите имя(10 символов)';
+  // divChat.appendChild(chatInfo);
+
   windowChat.appendChild(divChat);
   body.appendChild(windowChat);
 }

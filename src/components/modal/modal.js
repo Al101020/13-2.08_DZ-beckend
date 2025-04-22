@@ -34,14 +34,17 @@ btnModal.addEventListener('click', (e) => {
   (async () => {
     const textInput = document.querySelector('.input-text-modal');
     console.log(textInput.value);
+    const info = document.querySelector('.modal-info');
 
     window.api.add({ name: textInput.value });
 
     try {
       setTimeout(() => {
         if (!window.api.yuo) {
-          console.log('ошибка: нужно попробовать ввести другое имя');
-          textInput.value = '';
+          // console.log('ошибка: нужно попробовать ввести другой псевдоним');
+          info.textContent = 'ошибка: такой псевдоним уже есть';
+          info.classList.add('textRed');
+          textInput.value = ''; // удаляем текст из окна
 
           // const users = document.querySelector('#users');
           // console.log(users);
@@ -59,11 +62,18 @@ btnModal.addEventListener('click', (e) => {
         div_.classList.add('user');
         div_.textContent = '-';
         divYou.appendChild(div_);
-        const You = document.createElement('div');
-        You.classList.add('inline');
-        You.classList.add('niсkName');
-        You.textContent = 'You';
-        divYou.appendChild(You);
+        const you = document.createElement('div');
+        you.classList.add('inline');
+        you.classList.add('niсkName');
+        // -------------------------------------------
+        // You.textContent = 'You';
+        // You.textContent = textInput.value;
+        // You.textContent = textInput.window.api.yuo.name;
+        you.textContent = window.api.yuo.name;
+        // console.log(window.api);
+        console.log(window.api.yuo.name);
+        // -------------------------------------------
+        divYou.appendChild(you);
         divUsers.appendChild(divYou);
       }, 1000);
     } catch (err) {
@@ -82,6 +92,12 @@ btnModal.addEventListener('click', (e) => {
 formModal.appendChild(btnModal);
 
 modal.appendChild(formModal);
+// --------------------------------------------
+const modalInfo = document.createElement('h6');
+modalInfo.classList.add('modal-info');
+modalInfo.textContent = 'Введите псевдоним(10 символов)';
+modal.appendChild(modalInfo);
+// --------------------------------------------
 
 divModal.appendChild(modal);
 body.appendChild(divModal);

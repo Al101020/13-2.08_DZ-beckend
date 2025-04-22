@@ -1,61 +1,61 @@
 #window-chat {
-    position: relative;
-    width: 450px;
-    min-height: 300px;
+  position: relative;
+  width: 450px;
+  min-height: 300px;
   
-    margin: 0px auto;
-  }
+  margin: 0px auto;
+}
   
-  #users {
-    /* position: relative; */
-  
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    border: 1px solid #000;
-    border-radius: 20px;
-    background: rgb(251, 251, 251);
-    width: 120px;
-    min-height: 50px;
-    margin: 30px 10px 0 10px;
-    padding: 10px;
+#users {
+  /* position: relative; */
+
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  border: 1px solid #000;
+  border-radius: 20px;
+  background: rgb(251, 251, 251);
+  width: 120px;
+  min-height: 50px;
+  margin: 30px 10px 0 10px;
+  padding: 10px;
     
-    /* z-index: 10; */
-  }
+  /* z-index: 10; */
+}
   
-  .circle {
-    width: 10px;
-    height: 10px;
-    border: 1px solid #000;
-    border-radius: 10px;
-  }
+.circle {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
   
-  .user {
-    align-items: center;
-    display: inline;
-  }
+.user {
+  align-items: center;
+  display: inline;
+}
   
-  .inline {
-    display: inline;
-  }
+.inline {
+  display: inline;
+}
   
-  /* Chat */
-  #chat {
-    position: absolute;
-    border: 1px solid #000;
-    border-radius: 20px;
-    background: rgb(251, 251, 251);
-    min-width: 300px;
-    min-height: 200px;
-    margin: 20px 10px 0 120px;
+/* Chat */
+#chat {
+  position: absolute;
+  border: 1px solid #000;
+  border-radius: 20px;
+  background: rgb(251, 251, 251);
+  min-width: 300px;
+  min-height: 200px;
+  margin: 20px 10px 0 120px;
   
-    /* z-index: 11; */
-  }
+  /* z-index: 11; */
+}
   
-  .messages {
-    margin: 10px;
-    min-height: 134px;
-  }
+.messages {
+  margin: 10px;
+  min-height: 134px;
+}
 
 .message-my {
   /* textAlign: right; */
@@ -71,18 +71,18 @@
   margin: 2px;
 }
   
-  /* input */
-  .input-message {
-    margin: 10px;
-  }
+/* input */
+.input-message {
+  margin: 10px;
+}
   
-  .input-text {
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 10px;
-  }
+.input-text {
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+}
   
-  .form-input {
-    display: flex;
-    flex-direction: column;
-  }
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
