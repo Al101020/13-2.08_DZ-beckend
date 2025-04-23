@@ -9,7 +9,8 @@
 #users {
   /* position: relative; */
 
-  display: flex;
+  /* display: flex; */
+  /* position: static; */
   flex-direction: row;
   position: absolute;
   border: 1px solid #000;
@@ -19,7 +20,11 @@
   min-height: 50px;
   margin: 30px 10px 0 10px;
   padding: 10px;
-    
+
+  vertical-align: bottom;
+  white-space: pre;
+
+  /* justify-content: left; */
   /* z-index: 10; */
 }
   
@@ -31,12 +36,19 @@
 }
   
 .user {
-  align-items: center;
-  display: inline;
+  /* align-items: center; */
+  display: flex;
+  /* display: inline-flex; */
+  justify-content: left;
+  position: static;
 }
   
 .inline {
   display: inline;
+}
+
+.niсkYuo {
+  color: green;
 }
   
 /* Chat */
@@ -55,6 +67,8 @@
 .messages {
   margin: 10px;
   min-height: 134px;
+
+  white-space: pre;
 }
 
 .message-my {

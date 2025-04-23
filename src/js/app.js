@@ -2,42 +2,35 @@
 import '../components/chat/chat';
 import '../components/modal/modal';
 
-// import UserStateApi from '../components/UserStateApi';
-// const userStateApi = new UserStateApi;
-// console.log(userStateApi.yuo);
+// --- начало
+window.addEventListener('beforeunload', (event) => {
+  // закрытие окна
+  event.preventDefault();
+});
+// --- конец
 
-// не могу получить список уже зарегистрированных пользователей от сервера?
-
-const ws = new WebSocket('ws://localhost:3000/ws');
-console.log(ws);
+const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
 // -------------------------
 const chat = document.querySelector('#chat');
-// const chatMessages = chat.querySelector('.messages');
+const chatMessages = chat.querySelector('.messages');
+const users = document.querySelector('#users'); // console.log(users);
+users.innerHTML = '';
+
 const inputText = chat.querySelector('.input-text');
-
-// const chatInfo = chat.querySelector('.chat-info');
-// console.log(chat);
-// console.log(chatMessage);
-//     console.log(inputText);
-// console.log(inputText);
-
-// .input-text
 
 inputText.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     event.preventDefault();
     let inputTextValue = document.querySelector('.input-text').value;
-    console.log(inputTextValue);
-
     const message = document.createElement('div');
     message.classList.add('message-my');
     message.textContent = inputTextValue;
 
-    if (!message) return;
-    ws.send(message);
-    inputTextValue = '';
+    if (message.textContent === '') return;
+    ws.send(message.textContent);
+    inputTextValue = ''; // удаление текста
 
-    //   chatMessages.appendChild(message);
+    chatMessages.appendChild(message);
   }
 });
 
@@ -60,15 +53,31 @@ ws.addEventListener('error', (e) => {
 });
 
 ws.addEventListener('message', (e) => {
-  console.log(e);
   console.log(e.data);
+
+  const data = JSON.parse(e.data);
+  users.innerHTML = '';
+  data.forEach((elem) => {
+    const divUser = document.createElement('div'); // создаём User
+    divUser.classList.add('user');
+    const div_ = document.createElement('div');
+    div_.textContent = '- ';
+    divUser.appendChild(div_);
+    const user = document.createElement('div');
+    user.classList.add('inline');
+    user.classList.add('niсk');
+    user.textContent = elem.name;
+
+    divUser.appendChild(user);
+    users.appendChild(divUser);
+  });
 
   console.log('ws message');
 });
 
 // --------------------------
 
-// const eventSource = new EventSource('http://localhost:3000');
+// const eventSource = new EventSource('http://localhost:3000/sse');
 
 // eventSource.addEventListener('open', (e) => {
 //     console.log(e);

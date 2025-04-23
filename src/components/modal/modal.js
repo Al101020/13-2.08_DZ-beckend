@@ -33,7 +33,6 @@ btnModal.addEventListener('click', (e) => {
   e.preventDefault();
   (async () => {
     const textInput = document.querySelector('.input-text-modal');
-    console.log(textInput.value);
     const info = document.querySelector('.modal-info');
 
     window.api.add({ name: textInput.value });
@@ -41,13 +40,9 @@ btnModal.addEventListener('click', (e) => {
     try {
       setTimeout(() => {
         if (!window.api.yuo) {
-          // console.log('ошибка: нужно попробовать ввести другой псевдоним');
           info.textContent = 'ошибка: такой псевдоним уже есть';
           info.classList.add('textRed');
           textInput.value = ''; // удаляем текст из окна
-
-          // const users = document.querySelector('#users');
-          // console.log(users);
 
           return;
         }
@@ -60,32 +55,19 @@ btnModal.addEventListener('click', (e) => {
         divYou.classList.add('user');
         const div_ = document.createElement('div');
         div_.classList.add('user');
-        div_.textContent = '-';
+        div_.textContent = '- ';
         divYou.appendChild(div_);
         const you = document.createElement('div');
         you.classList.add('inline');
-        you.classList.add('niсkName');
-        // -------------------------------------------
-        // You.textContent = 'You';
-        // You.textContent = textInput.value;
-        // You.textContent = textInput.window.api.yuo.name;
-        you.textContent = window.api.yuo.name;
-        // console.log(window.api);
-        console.log(window.api.yuo.name);
-        // -------------------------------------------
+        you.classList.add('niсkYuo');
+        you.textContent = 'You';
+
         divYou.appendChild(you);
         divUsers.appendChild(divYou);
-      }, 1000);
+      }, 500);
     } catch (err) {
       console.error(err);
     }
-
-    // const request = fetch('http://localhost:3000');
-    // const result = await request;
-    // console.log(result);
-
-    // const text = await result.text();
-    // console.log(text);
   })();
 });
 
