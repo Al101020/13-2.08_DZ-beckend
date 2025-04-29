@@ -3,6 +3,7 @@ import '../components/chat/chat';
 import '../components/modal/modal';
 
 // import { inputText } from '../components/chat/inputText';
+import inputText from '../components/chat/inputTextChat';
 // -------------------------
 // const chat = document.querySelector('#chat');
 // const chatMessages = chat.querySelector('.messages');

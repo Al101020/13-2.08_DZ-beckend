@@ -1,4 +1,5 @@
- default export function inputText() {
+export default function inputTextChat() {
+  // export function inputText() {
   console.log('input text - Выполнить желаемые действия здесь');
 
   const chat = document.querySelector('#chat');
