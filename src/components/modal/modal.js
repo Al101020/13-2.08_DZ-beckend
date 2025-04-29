@@ -35,12 +35,15 @@ btnModal.addEventListener('click', (e) => {
     const textInput = document.querySelector('.input-text-modal');
     const info = document.querySelector('.modal-info');
 
-    window.api.add({ name: textInput.value });
+    // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    window.api.add({ name: textInput.value }); // Запрос на регистрацию нового пользователя
+    // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
     try {
       setTimeout(() => {
+        // console.log(window.api.yuo);
         if (!window.api.yuo) {
-          info.textContent = 'ошибка: такой псевдоним уже есть';
+          info.textContent = 'ошибка: возможно неполадки на сервере или такой псевдоним уже есть';
           info.classList.add('textRed');
           textInput.value = ''; // удаляем текст из окна
 
@@ -51,7 +54,7 @@ btnModal.addEventListener('click', (e) => {
 
         const divUsers = document.querySelector('#users');
 
-        const divYou = document.createElement('div'); // добовляем себя
+        const divYou = document.createElement('div'); // добавляем себя - 'You'
         divYou.classList.add('user');
         const div_ = document.createElement('div');
         div_.classList.add('user');
@@ -77,7 +80,7 @@ modal.appendChild(formModal);
 // --------------------------------------------
 const modalInfo = document.createElement('h6');
 modalInfo.classList.add('modal-info');
-modalInfo.textContent = 'Введите псевдоним(10 символов)';
+modalInfo.textContent = 'Введите псевдоним(<= 10 символов)';
 modal.appendChild(modalInfo);
 // --------------------------------------------
 

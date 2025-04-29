@@ -2,40 +2,32 @@
 import '../components/chat/chat';
 import '../components/modal/modal';
 
+// import { inputText } from '../components/chat/inputText';
+// -------------------------
+// const chat = document.querySelector('#chat');
+// const chatMessages = chat.querySelector('.messages');
+const users = document.querySelector('#users'); // console.log(users);
+// users.innerHTML = '';
+
+console.log(window.api);
+
 // --- начало
 window.addEventListener('beforeunload', (event) => {
-  // закрытие окна
+  // закрытие окна и выход пользователя
   event.preventDefault();
+  // console.log({ user: this.user }); // при закрытии окна эта строка бесполезна
+  // window.api.remove({ user: this.user }); // не получилось
+  window.api.remove({ user: window.api.you.name }); // при закрытии окна не понятно получилось?
+  // window.api.remove({ user: this.user }); // не получилось
 });
 // --- конец
 
 const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
-// -------------------------
-const chat = document.querySelector('#chat');
-const chatMessages = chat.querySelector('.messages');
-const users = document.querySelector('#users'); // console.log(users);
-users.innerHTML = '';
-
-const inputText = chat.querySelector('.input-text');
-
-inputText.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    event.preventDefault();
-    let inputTextValue = document.querySelector('.input-text').value;
-    const message = document.createElement('div');
-    message.classList.add('message-my');
-    message.textContent = inputTextValue;
-
-    if (message.textContent === '') return;
-    ws.send(message.textContent);
-    inputTextValue = ''; // удаление текста
-
-    chatMessages.appendChild(message);
-  }
-});
+inputText();
 
 ws.addEventListener('open', (e) => {
   console.log(e);
+  console.log(e.data);
 
   console.log('ws open');
 });
@@ -49,13 +41,14 @@ ws.addEventListener('close', (e) => {
 ws.addEventListener('error', (e) => {
   console.log(e);
 
-  console.log('ws error');
+  console.log('ws error, сервер недоступен');
 });
 
 ws.addEventListener('message', (e) => {
   console.log(e.data);
 
   const data = JSON.parse(e.data);
+
   users.innerHTML = '';
   data.forEach((elem) => {
     const divUser = document.createElement('div'); // создаём User
@@ -75,7 +68,7 @@ ws.addEventListener('message', (e) => {
   console.log('ws message');
 });
 
-// --------------------------
+// --------------------------(это из SSE)
 
 // const eventSource = new EventSource('http://localhost:3000/sse');
 

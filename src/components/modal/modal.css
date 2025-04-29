@@ -5,23 +5,17 @@
   height: 100%;
   
   top: 0;
-  left: 0;
-
-  /* display: none; */
+  left: 0;  /* display: none; */
 }
 
 .modal {
   position: absolute;
   background-color: rgb(252, 252, 252);
   width: 200px;
-  min-height: 100px;
-  /* top: 10%;
-  left: 50%; */
+  min-height: 100px;   /* top: 10%;   left: 50%; */
   border: 1px solid #000;
   border-radius: 10px;
-  padding: 5px 15px 0  15px;
-
-  /* display: none; */
+  padding: 5px 15px 0  15px;   /* display: none; */
 }
 
 .displayNone {
@@ -31,20 +25,16 @@
 .div-modal {
   position: absolute;
   top: 20%;
-  left: 30%;
-  /* left: calc(50% - 20px); */
-  /* padding: 100px auto; */
+  left: 30%;   /* left: calc(50% - 20px); */   /* padding: 100px auto; */
 }
 
 .title-modal {
-    margin: 10px 0;
-    /* padding: 0 auto; */
+    margin: 10px 0;     /* padding: 0 auto; */
     text-align: center;
 }
 
 .input-text-modal {
-  border: 1px solid #000;
-  /* border-radius: 10px; */
+  border: 1px solid #000;   /* border-radius: 10px; */
   padding: 10px;
 }
 

@@ -3,7 +3,7 @@
 export default class UserStateApi {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
-    this.yuo = null;
+    this.you = null;
   }
 
   async add(name) {
@@ -21,7 +21,7 @@ export default class UserStateApi {
 
       const { status } = json;
       const { user } = json;
-      this.yuo = user;
+      this.you = user;
 
       // console.log(user);
       console.log(status);
@@ -30,13 +30,34 @@ export default class UserStateApi {
     }
   }
 
-  // как получить список зарегистрированных пользователей?
-  async get() {
-    const request = fetch(this.apiUrl, {
-      method: 'GET',
+  // async removeE(user) { // -- пробный метод можно(нужно) удалить
+  //   const query = `/user=${user}`;
+  //   // console.log(query);
+
+  //   console.log(window.api.you.name);
+  // }
+
+  async remove(user) {
+    const query = `/user=${user}`;
+
+    const request = fetch(this.apiUrl + query, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     const result = await request;
-
     console.log(result);
+
+    if (!result.ok) {
+      console.error('ошибка!');
+
+      return;
+    }
+
+    const json = await result.json();
+    const { status } = json;
+
+    console.log(status);
   }
 }

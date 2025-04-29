@@ -27,11 +27,6 @@ function chat() {
   form.appendChild(input);
   inputMessage.appendChild(form);
   divChat.appendChild(inputMessage);
-  // ------------------------------------------------------
-  // const chatInfo = document.createElement('h6');
-  // chatInfo.classList.add('chat-info');
-  // chatInfo.textContent = 'Введите имя(10 символов)';
-  // divChat.appendChild(chatInfo);
 
   windowChat.appendChild(divChat);
   body.appendChild(windowChat);
