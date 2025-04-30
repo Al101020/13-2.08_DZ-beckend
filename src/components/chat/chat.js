@@ -13,6 +13,7 @@ function chat() {
   windowChat.appendChild(divUsers);
   const divChat = document.createElement('div');
   divChat.id = 'chat';
+
   const messages = document.createElement('div');
   messages.classList.add('messages');
   divChat.appendChild(messages);

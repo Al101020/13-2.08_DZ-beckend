@@ -31,18 +31,16 @@ btnModal.textContent = 'Продолжить';
 
 btnModal.addEventListener('click', (e) => {
   e.preventDefault();
+  const textInput = document.querySelector('.input-text-modal');
+  const info = document.querySelector('.modal-info');
   (async () => {
-    const textInput = document.querySelector('.input-text-modal');
-    const info = document.querySelector('.modal-info');
-
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     window.api.add({ name: textInput.value }); // Запрос на регистрацию нового пользователя
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
     try {
       setTimeout(() => {
-        // console.log(window.api.yuo);
-        if (!window.api.yuo) {
+        if (!window.api.you) {
           info.textContent = 'ошибка: возможно неполадки на сервере или такой псевдоним уже есть';
           info.classList.add('textRed');
           textInput.value = ''; // удаляем текст из окна

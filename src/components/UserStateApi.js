@@ -22,9 +22,17 @@ export default class UserStateApi {
       this.you = user;
 
       // console.log(user);
-      console.log(status);
-    } catch (error) {
-      console.error('Ошибка:', error);
+
+      if (status === 'ok') {
+        // Создан новый пользователь
+        console.log(status);
+        console.log(`Создан новый пользователь: ${user.name}`);
+      }
+      //  else {
+      //   console.log(status);
+      // }
+    } catch (err) {
+      console.error('Ошибка:', err);
     }
   }
 

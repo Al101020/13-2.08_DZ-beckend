@@ -2,8 +2,7 @@
 import '../components/chat/chat';
 import '../components/modal/modal';
 
-// import { inputText } from '../components/chat/inputText';
-import inputText from '../components/chat/inputTextChat';
+// import inputTextChat from '../components/chat/inputTextChat';
 // -------------------------
 // const chat = document.querySelector('#chat');
 // const chatMessages = chat.querySelector('.messages');
@@ -12,23 +11,69 @@ const users = document.querySelector('#users'); // console.log(users);
 
 console.log(window.api);
 
-// --- начало
 window.addEventListener('beforeunload', (event) => {
   // закрытие окна и выход пользователя
   event.preventDefault();
-  // console.log({ user: this.user }); // при закрытии окна эта строка бесполезна
-  // window.api.remove({ user: this.user }); // не получилось
-  window.api.remove({ user: window.api.you.name }); // при закрытии окна не понятно получилось?
-  // window.api.remove({ user: this.user }); // не получилось
-});
-// --- конец
+  window.api.remove({ user: window.api.you.name }); // при закрытии окна не понятно: получилось?
+  // в консоли тоже нет ни чего
+}); // --- конец закрытие окна
 
 const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
-inputText();
+
+// export default function inputTextChat() {
+// export function inputText() {
+console.log('input text - Выполнить желаемые действия здесь');
+
+const chat = document.querySelector('#chat');
+// console.log(chat);
+const chatMessages = chat.querySelector('.messages');
+console.log(chatMessages);
+const inputText = chat.querySelector('.input-text');
+console.log(inputText);
+
+inputText.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const inputTextValue = document.querySelector('.input-text').value;
+
+    const message = document.createElement('div'); // создаём сообщение
+    message.classList.add('message-my');
+    message.textContent = inputTextValue;
+
+    if (message.textContent === '') return;
+
+    // ошибка ищем:
+    // console.log(chatMessages);
+    // console.log(message);
+    // console.log(inputTextValue);
+    // console.log(window.api.you.name);
+    chatMessages.appendChild(message);
+
+    // пример от преподователя: { type: 'send', message: value, user: this.user }
+
+    // ws.send({ type: 'send', message: inputTextValue, user: window.api.you.name });
+    // Сервер отключается
+
+    // ws.send(JSON.parse(inputTextValue)); // is not valid JSON, но не отключается
+    // ws.send(JSON.parse({ message: inputTextValue })); //
+
+    // ws.send(JSON.parse({ inputTextValue })); // is not valid JSON
+
+    ws.send(JSON.parse({ type: 'send', message: inputTextValue, user: window.api.you.name }));
+    // в предыдущей строке: is not valid JSON
+
+    // ws.send(JSON.parse({ message: inputTextValue, user: window.api.you.name }));
+    // в предыдущей тоже строке: is not valid JSON
+
+    inputText.value = ''; // удаление текста
+  }
+});
+// }
+
+// inputTextChat();
 
 ws.addEventListener('open', (e) => {
-  console.log(e);
-  console.log(e.data);
+  console.log(e); // console.log(e.data);
 
   console.log('ws open');
 });
@@ -36,6 +81,7 @@ ws.addEventListener('open', (e) => {
 ws.addEventListener('close', (e) => {
   console.log(e);
 
+  alert('Сервер отключился');
   console.log('ws close');
 });
 
@@ -46,6 +92,7 @@ ws.addEventListener('error', (e) => {
 });
 
 ws.addEventListener('message', (e) => {
+  console.log(e);
   console.log(e.data);
 
   const data = JSON.parse(e.data);

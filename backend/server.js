@@ -60,6 +60,10 @@ const server = http.createServer(app);
 const wsServer = new WebSocketServer({ server });
 wsServer.on("connection", (ws) => {
   ws.on("message", (msg, isBinary) => {
+    // --- я добавил начало ---
+    console.log(msg);
+    console.log(isBinary);
+    // --- я добавил конец ---
     const receivedMSG = JSON.parse(msg);
     logger.info(`Message received: ${JSON.stringify(receivedMSG)}`); // Получено сообщение
     // обработка выхода пользователя
