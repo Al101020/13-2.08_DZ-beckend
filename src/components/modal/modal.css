@@ -10,7 +10,8 @@
 
 .modal {
   position: absolute;
-  background-color: rgb(252, 252, 252);
+  /* background-color: rgb(252, 252, 252); */
+  background-color: rgb(200, 185, 202);
   width: 200px;
   min-height: 100px;   /* top: 10%;   left: 50%; */
   border: 1px solid #000;
@@ -44,6 +45,7 @@
   border: 1px solid #000;
   border-radius: 10px;
   padding: 5px 10px;
+  background-color: rgb(105, 151, 133);
 }
 
 .modal-info {

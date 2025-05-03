@@ -12,10 +12,12 @@ const users = document.querySelector('#users'); // console.log(users);
 console.log(window.api);
 
 window.addEventListener('beforeunload', (event) => {
-  // закрытие окна и выход пользователя
+  // закрытие окна и выход пользователя - 1 вариант
   event.preventDefault();
   window.api.remove({ user: window.api.you.name }); // при закрытии окна не понятно: получилось?
   // в консоли тоже нет ни чего
+  // 2-й варинт:   // ws.close
+  // ws.send(JSON.parse({ type: "exit", user: window.api.you.name })); // нифига
 }); // --- конец закрытие окна
 
 const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
@@ -59,8 +61,10 @@ inputText.addEventListener('keypress', (event) => {
 
     // ws.send(JSON.parse({ inputTextValue })); // is not valid JSON
 
-    ws.send(JSON.parse({ type: 'send', message: inputTextValue, user: window.api.you.name }));
+    // ws.send(JSON.parse({ type: "send", message: inputTextValue, user: window.api.you.name }));
     // в предыдущей строке: is not valid JSON
+    ws.send({ type: 'send', message: inputTextValue, user: window.api.you.name }); // тоже самое без: JSON.parse
+    // зато нет ошибки: is not valid JSON
 
     // ws.send(JSON.parse({ message: inputTextValue, user: window.api.you.name }));
     // в предыдущей тоже строке: is not valid JSON
