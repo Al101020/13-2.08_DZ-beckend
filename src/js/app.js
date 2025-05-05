@@ -45,7 +45,6 @@ inputText.addEventListener('keypress', (event) => {
     message.textContent = inputTextValue;
 
     if (message.textContent === '') return;
-
     // ошибка ищем://console.log(chatMessages);//console.log(message);//console.log(inputTextValue);
     chatMessages.appendChild(message);
 
@@ -54,13 +53,13 @@ inputText.addEventListener('keypress', (event) => {
     // ws.send({ type: 'send', message: inputTextValue, user: window.api.you.name });
     // ----- Сервер отключается -----
 
-    // ws.send(JSON.parse(inputTextValue)); // is not valid JSON, но не отключается
-    // ws.send(JSON.parse({ message: inputTextValue })); //
-
-    // ws.send(JSON.parse({ inputTextValue })); // is not valid JSON
-
+    // ws.send(JSON.parse(inputTextValue));   // is not valid JSON, но не отключается
+    // ws.send(JSON.parse({ message: inputTextValue }));
+    // ws.send(JSON.parse({ inputTextValue }));   // is not valid JSON
     // ws.send(JSON.parse({ type: "send", message: inputTextValue, user: window.api.you.name }));
     // в предыдущей строке: is not valid JSON
+    // ws.send(JSON.parse({ message: inputTextValue, user: window.api.you.name }));
+    // в предыдущей тоже строке: is not valid JSON
 
     // ws.send({ type: 'send', message: inputTextValue, user: window.api.you.name });
     // тоже самое без: JSON.parse
@@ -75,10 +74,7 @@ inputText.addEventListener('keypress', (event) => {
         id: window.api.you.id,
         name: window.api.you.name,
       },
-    });
-
-    // ws.send(JSON.parse({ message: inputTextValue, user: window.api.you.name }));
-    // в предыдущей тоже строке: is not valid JSON
+    }); // ----- Сервер отключается -----
 
     inputText.value = ''; // удаление текста
   }
