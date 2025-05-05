@@ -1,7 +1,7 @@
 import './modal.css';
 import UserStateApi from '../UserStateApi';
 
-window.api = new UserStateApi('http://localhost:3000/new-user');
+window.api = new UserStateApi('http://localhost:3000/new-user'); // console.log(window.api.you);
 
 const body = document.querySelector('body');
 
@@ -46,6 +46,9 @@ btnModal.addEventListener('click', (e) => {
           textInput.value = ''; // удаляем текст из окна
 
           return;
+        }
+        if (window.api.you) {
+          console.log(window.api.you);
         }
         fullScreen.classList.add('displayNone');
         divModal.classList.add('displayNone');
