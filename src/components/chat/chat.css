@@ -18,11 +18,14 @@
   background: rgb(251, 251, 251);
   width: 120px;
   min-height: 50px;
+  max-height: 350px;
   margin: 30px 10px 0 10px;
   padding: 10px;
 
   vertical-align: bottom;
   white-space: pre;
+
+  overflow: auto; /* полоса прокрутки */
 
   /* justify-content: left; */
   /* z-index: 10; */
@@ -47,7 +50,8 @@
   display: inline;
 }
 
-.niсkYuo {
+/* inline niсkYuo */
+.niсkYou {
   color: green;
 }
   
@@ -71,7 +75,7 @@
   white-space: pre;
 }
 
-.message-my {
+.message-you {
   /* textAlign: right; */
   /* position: absolute; */
   right: 10px;
@@ -101,4 +105,10 @@
 .form-input {
   display: flex;
   flex-direction: column;
+}
+
+.messageUser {
+  font-size: 10px;
+  font-weight: 800;
+  color: green;
 }

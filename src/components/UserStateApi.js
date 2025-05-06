@@ -2,6 +2,7 @@ export default class UserStateApi {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
     this.you = null;
+    this.usersAreConnected = [];
   }
 
   async add(name) {
@@ -25,9 +26,10 @@ export default class UserStateApi {
 
       if (status === 'ok') {
         // Создан новый пользователь
-        console.log(status);
-        console.log(`Создан новый пользователь: ${user.name}`);
+        // console.log(status);
+        // console.log(`Создан новый пользователь: ${user.name}`);
       }
+
       //  else {
       //   console.log(status);
       // }

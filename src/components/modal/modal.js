@@ -47,9 +47,9 @@ btnModal.addEventListener('click', (e) => {
 
           return;
         }
-        if (window.api.you) {
-          console.log(window.api.you);
-        }
+        // if (window.api.you) {
+        //   console.log(window.api.you);
+        // }
         fullScreen.classList.add('displayNone');
         divModal.classList.add('displayNone');
 
@@ -63,7 +63,7 @@ btnModal.addEventListener('click', (e) => {
         divYou.appendChild(div_);
         const you = document.createElement('div');
         you.classList.add('inline');
-        you.classList.add('niсkYuo');
+        you.classList.add('niсkYou');
         you.textContent = 'You';
 
         divYou.appendChild(you);
