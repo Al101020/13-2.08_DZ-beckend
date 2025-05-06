@@ -13,6 +13,10 @@ export default class UserStateApi {
         },
         body: JSON.stringify(name),
       });
+      // --- добавляем 06.05.2025
+      console.log(`request: ${request.status}`);
+      // const jsonD
+      // --- конец добавки 06.05.2025
 
       const result = await request;
       const json = await result.json();

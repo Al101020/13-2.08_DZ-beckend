@@ -6,3 +6,18 @@ REST, Server-sent events, WebSockets
 Задание:
 https://github.com/netology-code/ahj-homeworks/tree/AHJ-50/sse-ws
 
+-------------------------------------------------------------------------------
+в Yandex нашёл пример перехвата исключения или ошибки (не знаю на сколько поможен):
+async function fetchData(url) {  
+    try {  
+        const response = await fetch(url);  
+        if (!response.ok) {  
+            throw new Error(response.statusText);  // Если статус не OK, генерируем исключение  
+        }  
+        const data = await response.json();  
+        return data;  
+    }  
+    catch (error) {  
+        console.error('Fetch завершился с ошибкой:', error);  
+    }  
+} 

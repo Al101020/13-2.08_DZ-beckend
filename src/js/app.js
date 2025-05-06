@@ -51,9 +51,7 @@ inputText.addEventListener('keypress', (event) => {
     messageUser.classList.add('messageUser');
     const date = new Date();
 
-    // messageUser.textContent = window.api.you.name + ', дата: ' + date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear();
     messageUser.textContent = `You, ${timeDate(date)}`;
-    // messageUser.textContent = updateTime();
 
     message.appendChild(messageUser);
 
