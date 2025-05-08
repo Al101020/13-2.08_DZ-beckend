@@ -1,12 +1,11 @@
 import './chat.css';
-// import { inputText } from './inputText';
-// { UserStateApi } from '../UserStateApi';
 
 const body = document.querySelector('body');
 
 function chat() {
   const windowChat = document.createElement('div');
   windowChat.id = 'window-chat';
+
   const divUsers = document.createElement('div');
   divUsers.id = 'users';
 

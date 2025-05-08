@@ -1,3 +1,5 @@
+export const infoError = [];
+
 export default class UserStateApi {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
@@ -25,16 +27,18 @@ export default class UserStateApi {
 
       const result = await request;
       if (!result.ok) {
-        console.log('!result.ok');
+        // console.log('!result.ok');
       } else {
-        console.log('result.ok');
+        // console.log('result.ok');
       }
-      console.log(result);
-      console.log(result.status); // код ошибки, но почему её не перехватывает блок "catch"
-      console.log(result.statusText);
+      // console.log(result); // работает
+      // console.log(result.status); // код ошибки, но почему её не перехватывает блок "catch"?
+      // console.log(result.statusText);
 
       const json = await result.json();
-      console.log(json);
+      // console.log(json);
+      infoError.splice(0, 1, json.message); // infoError = json.message;
+      // console.log(infoError); // здесь работает
 
       const { status } = json;
       const { user } = json;
@@ -44,12 +48,10 @@ export default class UserStateApi {
       if (status === 'ok') {
         // Создан новый пользователь        // console.log(status);
         // console.log(`Создан новый пользователь: ${user.name}`);
-      }
-      //  else {
-      //   console.log(status);
-      // }
+      } //  else {      //   console.log(status);      // }
     } catch (error) {
-      console.error('Ошибка:', error);
+      console.error('Ошибка:', error); // Ошибка: TypeError: Assignment to constant variable.
+      console.log('Ошибка:');
     }
   }
 

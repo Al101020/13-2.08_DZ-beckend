@@ -1,5 +1,7 @@
 import './modal.css';
-import UserStateApi from '../UserStateApi';
+import UserStateApi, { infoError } from '../UserStateApi';
+
+// console.log(infoError);
 
 window.api = new UserStateApi('http://localhost:3000/new-user'); // console.log(window.api.you);
 
@@ -41,7 +43,10 @@ btnModal.addEventListener('click', (e) => {
     try {
       setTimeout(() => {
         if (!window.api.you) {
-          info.textContent = 'ошибка: возможно неполадки на сервере или такой псевдоним уже есть';
+          // console.log(infoError);
+          // info.textContent = 'ошибка: возможно неполадки на сервере или такой псевдоним уже есть';
+          const constInfoErr = infoError[0];
+          info.textContent = constInfoErr;
           info.classList.add('textRed');
           textInput.value = ''; // удаляем текст из окна
 
@@ -55,19 +60,42 @@ btnModal.addEventListener('click', (e) => {
 
         const divUsers = document.querySelector('#users');
 
-        const divYou = document.createElement('div'); // добавляем себя - 'You'
-        divYou.classList.add('user');
-        const div_ = document.createElement('div');
-        div_.classList.add('user');
-        div_.textContent = '- ';
-        divYou.appendChild(div_);
-        const you = document.createElement('div');
-        you.classList.add('inline');
-        you.classList.add('niсkYou');
-        you.textContent = 'You';
+        // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+        // нужно проверить есть ли window.api.you
+        if (window.api.you) {
+          // console.log('You в Api есть');
+          // console.log(window.api.usersAreConnected);
 
-        divYou.appendChild(you);
-        divUsers.appendChild(divYou);
+          const divYou = document.createElement('div'); // добавляем себя - 'You'
+          divYou.classList.add('user');
+          const div_ = document.createElement('div');
+          div_.classList.add('user');
+          div_.textContent = '- ';
+          divYou.appendChild(div_);
+          const you = document.createElement('div');
+          you.classList.add('inline');
+          you.classList.add('niсkYou');
+          you.textContent = 'You';
+
+          divYou.appendChild(you);
+
+          // добавить id пользавателя
+          const idUser = document.createElement('div');
+          idUser.classList.add('idUser'); // displayNone
+          idUser.classList.add('displayNone');
+          idUser.textContent = window.api.you.id;
+          divYou.appendChild(idUser);
+          // добавить name пользавателя You
+          const nameYou = document.createElement('div');
+          nameYou.classList.add('nameYou'); // displayNone
+          nameYou.classList.add('displayNone');
+          nameYou.textContent = window.api.you.name;
+          divYou.appendChild(nameYou);
+
+          divUsers.appendChild(divYou);
+        } else {
+          console.log('You в Api нет');
+        }
       }, 500);
     } catch (err) {
       console.error(err);
