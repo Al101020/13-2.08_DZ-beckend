@@ -8,7 +8,8 @@ export default function addUsers(data) {
   console.log(data);
 
   if (!Array.isArray(data)) {
-    // console.log('data - не массив');
+    console.log('data - не массив');
+    console.log(data);
     if (window.api.usersAreConnected.includes(window.api.you)) {
       console.log('YOU в API подключенных есть');
     } else {
@@ -38,14 +39,15 @@ export default function addUsers(data) {
       users.appendChild(divUser);
     } // - без ошибки     // return;
   } else if (Array.isArray(data)) {
+    console.log('--- если Data - массив');
+    console.log(data);
     data.forEach((elem) => {
       // перебираем всех подключенных пользователей
       // console.log(elem);
-      if (window.api.usersAreConnected.includes(elem)) {
-        console.log('Elem есть в подключенных');
+      if (!window.api.usersAreConnected.includes(elem)) {
+        console.log('Elem-ента НЕТ в подключенных');
+        window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
       }
-
-      window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
 
       const divUser = document.createElement('div'); // создаём User
       divUser.classList.add('user');
@@ -67,4 +69,5 @@ export default function addUsers(data) {
       users.appendChild(divUser);
     });
   }
+  console.log(data);
 }
