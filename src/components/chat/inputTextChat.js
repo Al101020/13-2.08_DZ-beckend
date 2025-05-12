@@ -29,6 +29,7 @@
 //   });
 // }
 
+// import addUsers from '../addUsers';
 // ------------------------------------------------------------------------------2025.05.07----------
 console.log('--- Запустилась функция: inputTextChat.js');
 const inputText = document.querySelector('.input-text');
@@ -98,6 +99,9 @@ inputText.addEventListener('keypress', (event) => {
     if (messageText.textContent === '') return; // изменить
     // ошибка ищем://console.log(chatMessages);//console.log(message);//console.log(inputTextValue);
     chatMessages.appendChild(message);
+
+    console.log(window.api);
+    // addUsers(window.api.usersAreCnnected);
 
     // пример от преподователя: { type: 'send', message: value, user: this.user }
     // console.log(window.api.you.id);

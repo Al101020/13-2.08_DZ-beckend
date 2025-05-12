@@ -34,6 +34,7 @@ btnModal.textContent = 'Продолжить';
 btnModal.addEventListener('click', (e) => {
   e.preventDefault();
   const textInput = document.querySelector('.input-text-modal');
+
   const info = document.querySelector('.modal-info');
   (async () => {
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
@@ -115,3 +116,6 @@ modal.appendChild(modalInfo);
 
 divModal.appendChild(modal);
 body.appendChild(divModal);
+
+// const
+// window.onload = function() { textInput.focus(); };

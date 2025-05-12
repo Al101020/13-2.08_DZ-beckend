@@ -63,3 +63,10 @@ ws.addEventListener('message', (e) => {
 
   console.log('ws message');
 });
+// -------------------------------------------------------
+const textModal = document.querySelector('.input-text-modal');
+console.log(textModal);
+function focusModal() {
+  textModal.focus();
+}
+window.onload = focusModal(); // устанавливаем фокус

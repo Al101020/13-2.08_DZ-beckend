@@ -21,3 +21,11 @@ async function fetchData(url) {
         console.error('Fetch завершился с ошибкой:', error);  
     }  
 } 
+
+-------------------------------------------------------------------------------
+git clone https://github.com/Al101020/13-2.08_DZ-beckend.git
+npm install
+cd 13-2.08_DZ-beckend
+npm start
+npm run lint -- --fix
+
