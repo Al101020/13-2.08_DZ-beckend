@@ -17,21 +17,18 @@ console.log(chatMessages); // ещё пустой
 
 const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
 
-// window.addEventListener('beforeunload', (event) => {
-// закрытие окна и выход пользователя
-// event.preventDefault();
-//  - 2 вариант через WS // работает, но тогда нет ни кого
-// ws.send(
-//   JSON.stringify({
-//     type: 'exit',
-//     // message: inputTextValue,
-//     user: {
-//       id: window.api.you.id,
-//       name: window.api.you.name,
-//     },
-//   }),
-// ); // ----- Сервер не отключается ----- // нужно: stringify
-// }); // --- конец закрытие окна
+window.addEventListener('beforeunload', (event) => {
+  event.preventDefault();
+  ws.send(
+    JSON.stringify({
+      type: 'exit',
+      user: {
+        id: window.api.you.id,
+        name: window.api.you.name,
+      },
+    }),
+  );
+}); // --- конец закрытие окна
 
 ws.addEventListener('open', (e) => {
   console.log(e); // console.log(e.data);
@@ -57,11 +54,7 @@ ws.addEventListener('message', (e) => {
   console.log(e); // console.log(e.data); // console.log(window.api);
   const data = JSON.parse(e.data);
   users.innerHTML = ''; // всё удалили    console.log(data);
-  addUsers(data); // --- функция addUsers - сработала
-
-  // if (!Array.isArray(data)) {
-  // } // console.log('data - не массив');
-
+  addUsers(data);
   console.log('ws message');
 });
 // -------------------------------------------------------

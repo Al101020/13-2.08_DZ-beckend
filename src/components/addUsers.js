@@ -5,9 +5,9 @@ const users = document.querySelector('#users');
 export default function addUsers(data) {
   // console.log('--- Запустилась функция: addUsers.js');   // console.log(data);
   if (!Array.isArray(data)) {
-    console.log('data - не массив, значит сообщение в чат!!!');
+    // console.log('data - не массив, значит сообщение в чат!!!');
 
-    messageToChat(data); // сообщение в чат
+    messageToChat(data); // добавляем сообщение в чат
 
     for (let i = 0; i < window.api.usersAreConnected.length; i++) {
       // console.log(window.api.usersAreConnected[i]);
@@ -33,7 +33,12 @@ export default function addUsers(data) {
     }
 
     if (window.api.you) {
-      // console.log('data - не массив и You в Api есть');
+      console.log('data - не массив и You в Api есть');
+      // теперь нужно проверить на странице есть You чтобы пометить
+      const allUsers = document.querySelectorAll('.user');
+      console.log(allUsers);
+      console.log(window.api);
+      // ---
 
       const divYou = document.createElement('div'); // добавляем себя - 'You'
       divYou.classList.add('user');
@@ -97,9 +102,6 @@ export default function addUsers(data) {
       console.log(window.api.usersAreConnected);
 
       const divUsers = document.querySelector('#users');
-
-      const allUsers = document.querySelector('.user');
-      console.log(allUsers);
 
       const divYou = document.createElement('div'); // добавляем себя - 'You'
       divYou.classList.add('user');
