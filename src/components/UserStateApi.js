@@ -17,28 +17,11 @@ export default class UserStateApi {
         body: JSON.stringify(name),
       });
 
-      //   if (!response.ok) {
-      //     throw new Error(response.statusText);  // Если статус не OK, генерируем исключение
-      // }
-
-      // --- добавляем 06.05.2025
-      // console.log(`request: ${request.status}`); // эта строка предложенная преподователем не работает
-      // --- конец добавки 06.05.2025
-
       const result = await request;
-      if (!result.ok) {
-        // console.log('!result.ok');
-      } else {
-        // console.log('result.ok');
-      }
-      // console.log(result); // работает
-      // console.log(result.status); // код ошибки, но почему её не перехватывает блок "catch"?
-      // console.log(result.statusText);
 
-      const json = await result.json();
-      // console.log(json);
+      const json = await result.json(); // console.log(json);
+
       infoError.splice(0, 1, json.message); // infoError = json.message;
-      // console.log(infoError); // здесь работает
 
       const { status } = json;
       const { user } = json;
@@ -54,13 +37,6 @@ export default class UserStateApi {
       console.log('Ошибка:');
     }
   }
-
-  // async removeE(user) { // -- пробный метод можно(нужно) удалить
-  //   const query = `/user=${user}`;
-  //   // console.log(query);
-
-  //   console.log(window.api.you.name);
-  // }
 
   async remove(user) {
     const query = `/user=${user}`;

@@ -1,37 +1,4 @@
-// export default function inputTextChat() {
-//   // export function inputText() {
-//   console.log('input text - Выполнить желаемые действия здесь');
-
-//   const chat = document.querySelector('#chat');
-//     // console.log(chat);
-//   const chatMessages = chat.querySelector('.messages');
-//     console.log(chatMessages);
-//   const inputText = chat.querySelector('.input-text');
-//     console.log(inputText);
-
-//   inputText.addEventListener('keypress', (event) => {
-//     if (event.key === 'Enter') {
-//       event.preventDefault();
-//       let inputTextValue = document.querySelector('.input-text').value;
-
-//       const message = document.createElement('div'); // создаём сообщение
-//       message.classList.add('message-my');
-//       message.textContent = inputTextValue;
-
-//       if (message.textContent === '') return;
-
-//       chatMessages.appendChild(message);
-
-//       ws.send(inputTextValue);
-
-//       message.textContent = ''; // удаление текста
-//     }
-//   });
-// }
-
-// import addUsers from '../addUsers';
-// ------------------------------------------------------------------------------2025.05.07----------
-console.log('--- Запустилась функция: inputTextChat.js');
+// console.log('--- Запустилась функция: inputTextChat.js');
 const inputText = document.querySelector('.input-text');
 const chatMessages = document.querySelector('.messages');
 const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);// console.log(inputText);
@@ -52,16 +19,7 @@ function timeDate(date) {
 }
 
 inputText.addEventListener('keypress', (event) => {
-  // console.log('input text - Выполнить желаемые действия здесь(сообщение в чат)');// по всем клавишам
-  // подписываемся на отправку сообщения
   if (event.key === 'Enter') {
-    // if (window.api.you) {
-    //   console.log('- есть YOU');
-
-    // } else if (!window.api.you) {
-    //   console.log('- нет YOU');
-    // };
-
     console.log('input text - Выполнить желаемые действия здесь(сообщение в чат)'); // по 'Enter'
     event.preventDefault();
     const inputTextValue = document.querySelector('.input-text').value;
@@ -94,18 +52,12 @@ inputText.addEventListener('keypress', (event) => {
     messageIdYou.textContent = window.api.you.id;
     message.appendChild(messageIdYou);
 
-    messageText.textContent = inputTextValue; // изменить
+    messageText.textContent = inputTextValue;
 
-    if (messageText.textContent === '') return; // изменить
-    // ошибка ищем://console.log(chatMessages);//console.log(message);//console.log(inputTextValue);
+    if (messageText.textContent === '') return;
     chatMessages.appendChild(message);
 
     console.log(window.api);
-    // addUsers(window.api.usersAreCnnected);
-
-    // пример от преподователя: { type: 'send', message: value, user: this.user }
-    // console.log(window.api.you.id);
-    // console.log(window.api.you.name);
 
     ws.send(
       JSON.stringify({
@@ -116,7 +68,7 @@ inputText.addEventListener('keypress', (event) => {
           name: window.api.you.name,
         },
       }),
-    ); // ----- Сервер не отключается ----- // нужно: stringify
+    );
 
     inputText.value = ''; // удаление текста
   }

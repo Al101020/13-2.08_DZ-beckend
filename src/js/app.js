@@ -53,7 +53,8 @@ ws.addEventListener('error', (e) => {
 });
 
 ws.addEventListener('message', (e) => {
-  e.preventDefault(); // console.log(e);  // console.log(e.data); // console.log(window.api);
+  e.preventDefault();
+  console.log(e); // console.log(e.data); // console.log(window.api);
   const data = JSON.parse(e.data);
   users.innerHTML = ''; // всё удалили    console.log(data);
   addUsers(data); // --- функция addUsers - сработала
@@ -69,4 +70,4 @@ console.log(textModal);
 function focusModal() {
   textModal.focus();
 }
-window.onload = focusModal(); // устанавливаем фокус
+window.onload = focusModal(); // устанавливаем фокус на текстовое модального окна

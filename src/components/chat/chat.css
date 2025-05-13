@@ -7,10 +7,6 @@
 }
   
 #users {
-  /* position: relative; */
-
-  /* display: flex; */
-  /* position: static; */
   flex-direction: row;
   position: absolute;
   border: 1px solid #000;
@@ -26,9 +22,6 @@
   white-space: pre;
 
   overflow: auto; /* полоса прокрутки */
-
-  /* justify-content: left; */
-  /* z-index: 10; */
 }
   
 .circle {
@@ -39,9 +32,7 @@
 }
   
 .user {
-  /* align-items: center; */
   display: flex;
-  /* display: inline-flex; */
   justify-content: left;
   position: static;
 }
@@ -50,7 +41,6 @@
   display: inline;
 }
 
-/* inline niсkYuo */
 .niсkYou {
   color: green;
 }
@@ -64,8 +54,6 @@
   min-width: 300px;
   min-height: 200px;
   margin: 20px 10px 0 120px;
-  
-  /* z-index: 11; */
 }
   
 .messages {
@@ -76,19 +64,30 @@
 }
 
 .message-you {
-  /* textAlign: right; */
-  /* position: absolute; */
   right: 10px;
-  float: right;
-
   text-align: right;
+  /* border: 1px solid #000; */
+  width: 260px;
+  padding: 5px;
+  margin: 2px;
 
+  overflow: auto;
+}
+
+.message-not-mine {
+  right: 10px;
+  /* text-align: right; */
   /* border: 1px solid #000; */
   width: 200px;
   padding: 5px;
   margin: 2px;
+
+  overflow: auto;
 }
-  
+.messageText {
+    overflow-wrap: break-word;
+}
+
 /* input */
 .input-message {
   margin: 10px;
