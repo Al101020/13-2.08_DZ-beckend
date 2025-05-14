@@ -7,7 +7,7 @@ REST, Server-sent events, WebSockets
 https://github.com/netology-code/ahj-homeworks/tree/AHJ-50/sse-ws
 
 -------------------------------------------------------------------------------
-в Yandex нашёл пример перехвата исключения или ошибки (не знаю на сколько поможен):
+в Yandex нашёл пример перехвата исключения или ошибки (не знаю, на сколько поможет):
 async function fetchData(url) {  
     try {  
         const response = await fetch(url);  

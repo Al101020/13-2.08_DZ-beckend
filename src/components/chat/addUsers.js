@@ -1,4 +1,17 @@
 const users = document.querySelector('#users');
+
+// Здесь нужно вставить функцию для проверки объекта в массиве:
+// function isInArray(id, arr) {
+//   if (arr.some(e => e.id === id)) {
+//     return true;
+//   }
+//   return false;
+// }
+// или
+// (arr.find(item => item.id == {нужный id}) && true) || false
+// или
+// var hasId = arr.some(o => o.id === 2);
+
 export default function addUsers(data) {
   console.log('--- Запустилась функция: addUsers.js');
   // console.log(data);

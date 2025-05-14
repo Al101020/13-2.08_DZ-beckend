@@ -50,7 +50,11 @@ ws.addEventListener('message', (e) => {
   console.log('ws message');
 
   const data = JSON.parse(e.data);
+
+  // console.log(users);
   users.innerHTML = ''; // всё удалили    console.log(data);
+  // console.log(users);
+
   addUsersAndMessageToChat(data, e);
 });
 // -------------------------------------------------------
