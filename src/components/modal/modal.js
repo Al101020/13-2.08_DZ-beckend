@@ -1,5 +1,5 @@
 import './modal.css';
-import UserStateApi, { infoError } from '../UserStateApi';
+import UserStateApi, { infoError } from '../chat/UserStateApi';
 
 // console.log(infoError);
 
@@ -62,7 +62,7 @@ btnModal.addEventListener('click', (e) => {
         const divUsers = document.querySelector('#users');
 
         // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-        // нужно проверить есть ли window.api.you
+        // нужно проверить есть ли YOU в window.api.usersAreConnected , window.api.you
         if (window.api.you) {
           // console.log('You в Api есть');
           // console.log(window.api.usersAreConnected);

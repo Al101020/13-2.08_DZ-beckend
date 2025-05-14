@@ -57,7 +57,7 @@ inputText.addEventListener('keypress', (event) => {
     if (messageText.textContent === '') return;
     chatMessages.appendChild(message);
 
-    console.log(window.api);
+    // console.log(window.api);
 
     ws.send(
       JSON.stringify({
