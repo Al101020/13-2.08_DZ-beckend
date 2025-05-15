@@ -11,10 +11,10 @@ export default function addUsersFromApi(usersAreConnected) {
     usersAreConnected.forEach((elem) => {
       window.api.usersAreConnected.push(elem);
     });
-    console.log(window.api.usersAreConnected);
+    // console.log(window.api.usersAreConnected);
   }
 
-  console.log(window.api.usersAreConnected);
+  // console.log(window.api.usersAreConnected);
 
   if (users.length === 0) {
     console.log(users_);

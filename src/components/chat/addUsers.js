@@ -1,12 +1,12 @@
 const users = document.querySelector('#users');
 
 // Здесь нужно вставить функцию для проверки объекта в массиве:
-// function isInArray(id, arr) {
-//   if (arr.some(e => e.id === id)) {
-//     return true;
-//   }
-//   return false;
-// }
+function isInArray(id, arr) {
+  if (arr.some((e) => e.id === id)) {
+    return true;
+  }
+  return false;
+}
 // или
 // (arr.find(item => item.id == {нужный id}) && true) || false
 // или
@@ -16,16 +16,18 @@ export default function addUsers(data) {
   console.log('--- Запустилась функция: addUsers.js');
   // console.log(data);
   // console.log(window.api.you); // при включении null
-  console.log(window.api.usersAreConnected);
-  const allUsers = document.querySelectorAll('.user');
-  console.log(allUsers);
+  // console.log(window.api.usersAreConnected);
+  // const allUsers = document.querySelectorAll('.user'); // ещё рано они создаются ниже
+  // console.log(allUsers);
 
   data.forEach((elem) => {
     // перебираем всех подключенных пользователей      // window.api.usersAreConnected = [];
     // Нужно проверять есть ли такое имя на странице(и в массиве api), если есть не добавлять
-    console.log(elem.name);
-    // if () {};
-    window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
+    // console.log(elem.name);
+    // console.log(isInArray(elem.id, data));
+    if (!isInArray(elem.id, data)) {
+      window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
+    }
 
     const divUser = document.createElement('div'); // создаём User
     divUser.classList.add('user');

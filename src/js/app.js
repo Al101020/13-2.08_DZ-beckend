@@ -45,7 +45,7 @@ ws.addEventListener('error', (e) => {
 
 ws.addEventListener('message', (e) => {
   e.preventDefault();
-  // console.log(e); // console.log(e.data); // console.log(window.api);
+  console.log(e); // console.log(e.data); // console.log(window.api);
 
   console.log('ws message');
 

@@ -76,8 +76,8 @@ export default class UserStateApi {
       const json = await result.json(); // console.log(json);
 
       infoError.splice(0, 1, json.message); // infoError = json.message;
-      console.log(infoError[0]);
-      console.log(infoError);
+      // console.log(infoError[0]);
+      // console.log(infoError);
 
       const { status } = json;
       const { user } = json;

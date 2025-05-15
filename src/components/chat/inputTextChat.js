@@ -20,7 +20,7 @@ function timeDate(date) {
 
 inputText.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    console.log('input text - Выполнить желаемые действия здесь(сообщение в чат)'); // по 'Enter'
+    // console.log('input text - Выполнить желаемые действия здесь(сообщение в чат)'); // по 'Enter'
     event.preventDefault();
     const inputTextValue = document.querySelector('.input-text').value;
 
