@@ -1,3 +1,6 @@
+const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
+console.log(ws);
+
 const users = document.querySelector('#users');
 
 // Здесь нужно вставить функцию для проверки объекта в массиве:
@@ -14,7 +17,7 @@ function isInArray(id, arr) {
 
 export default function addUsers(data) {
   console.log('--- Запустилась функция: addUsers.js');
-  // console.log(data);
+  console.log(data);
   // console.log(window.api.you); // при включении null
   // console.log(window.api.usersAreConnected);
   // const allUsers = document.querySelectorAll('.user'); // ещё рано они создаются ниже
@@ -25,9 +28,31 @@ export default function addUsers(data) {
     // Нужно проверять есть ли такое имя на странице(и в массиве api), если есть не добавлять
     // console.log(elem.name);
     // console.log(isInArray(elem.id, data));
-    if (!isInArray(elem.id, data)) {
-      window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
+    // if (!isInArray(elem.id, data)) {
+    //   window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
+    // }
+    if (window.api.you === null) {
+      console.log('if (window.api.you === null)');
+
+      if (!isInArray(elem.id, window.api.usersAreConnected)) {
+        // если елемент уже усть
+        window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
+      }
+
+      // window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
+    } else if (window.api.you.id) {
+      console.log('if (window.api.you.id)');
+      // console.log(window.api.you.id);
+      if (window.api.you.id !== elem.id) {
+        console.log('if (window.api.you.id !== elem.id)');
+        console.log(elem);
+      }
+    } else {
+      console.log('else - третий вариант ? неизвестно');
+      console.log(elem);
     }
+
+    // window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
 
     const divUser = document.createElement('div'); // создаём User
     divUser.classList.add('user');
@@ -48,6 +73,9 @@ export default function addUsers(data) {
 
     users.appendChild(divUser);
   });
+
+  console.log(window.api);
+  console.log(window.api.usersAreConnected);
 
   if (window.api.you) {
     console.log('You в Api есть');

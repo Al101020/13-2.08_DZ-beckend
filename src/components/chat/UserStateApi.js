@@ -82,7 +82,7 @@ export default class UserStateApi {
       const { status } = json;
       const { user } = json;
       this.you = user; // console.log(this.you);       // console.log(user);
-      console.log(status); // а здесь уже статус "OK" или "error"
+      console.log(`${status} - status(Создание нового пользователя)`); // а здесь уже статус "OK" или "error"
 
       if (status === 'ok') {
         // Создан новый пользователь        // console.log(status);

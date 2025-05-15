@@ -15,7 +15,7 @@ export default function addUsersAndMessageToChat(data, e) {
   if (!Array.isArray(data)) {
     // console.log('data - не массив, значит сообщение в чат!!!');
 
-    window.api.usersAreConnected = []; // обнуляем список сохранённых подключенных пользователей
+    // window.api.usersAreConnected = []; // обнуляем список сохранённых подключенных пользователей
     // console.log(window.api.usersAreConnected);
     messageToChat(data); // добавляем сообщение в чат
     addUsersFromApi(usersAreConnected); // нужно обновить список пользователе
@@ -27,5 +27,6 @@ export default function addUsersAndMessageToChat(data, e) {
       return;
     }
     addUsers(data);
-  } // console.log(data);
+  }
+  // console.log(data);
 }
