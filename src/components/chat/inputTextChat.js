@@ -1,7 +1,45 @@
 // console.log('--- Запустилась функция: inputTextChat.js');
+
+// import addUsersAndMessageToChat from './addUsersAndMessageToChat';
+
 const inputText = document.querySelector('.input-text');
 const chatMessages = document.querySelector('.messages');
+
 const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);// console.log(inputText);
+
+// ws.addEventListener('open', (e) => {
+//   console.log(e); // console.log(e.data);
+
+//   console.log('ws open');
+// });
+
+// ws.addEventListener('close', (e) => {
+//   console.log(e);
+
+//   alert('Сервер недоступен');
+//   console.log('ws close');
+// });
+
+// ws.addEventListener('error', (e) => {
+//   console.log(e);
+
+//   console.log('ws error, сервер недоступен');
+// });
+
+// ws.addEventListener('message', (e) => {
+//   e.preventDefault();
+//   console.log(e); // console.log(e.data); // console.log(window.api);
+
+//   console.log('ws message');
+
+//   const data = JSON.parse(e.data);
+
+//   // console.log(users);
+//   users.innerHTML = ''; // всё удалили    console.log(data);
+//   // console.log(users);
+
+//   addUsersAndMessageToChat(data, e);
+// });
 
 function addZero(num) {
   // функция - нули добавляет в дате и время

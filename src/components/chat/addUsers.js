@@ -1,5 +1,19 @@
-const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
-console.log(ws);
+// import addUsersAndMessageToChat from './addUsersAndMessageToChat';
+
+// --- Пытаемся запросить список подключенных пользователей от сервера.
+// console.log('Пытаемся запросить список подключенных пользователей от сервера');
+// ws.send(
+//   JSON.stringify({
+//     // type: 'userState',
+//     type: 'send',
+//     // type: 'exit',
+//     user: {
+//       id: '111',
+//       name: '111',
+//     },
+//   }),
+// );
+// --- конец запроса списка
 
 const users = document.querySelector('#users');
 
@@ -17,7 +31,7 @@ function isInArray(id, arr) {
 
 export default function addUsers(data) {
   console.log('--- Запустилась функция: addUsers.js');
-  console.log(data);
+  // console.log(data);
   // console.log(window.api.you); // при включении null
   // console.log(window.api.usersAreConnected);
   // const allUsers = document.querySelectorAll('.user'); // ещё рано они создаются ниже
@@ -35,7 +49,7 @@ export default function addUsers(data) {
       console.log('if (window.api.you === null)');
 
       if (!isInArray(elem.id, window.api.usersAreConnected)) {
-        // если елемент уже усть
+        // если елемент отсутствует
         window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
       }
 
@@ -46,6 +60,10 @@ export default function addUsers(data) {
       if (window.api.you.id !== elem.id) {
         console.log('if (window.api.you.id !== elem.id)');
         console.log(elem);
+
+        window.api.usersAreConnected.push(elem); // добавляем в API(сохраняем подкл. пользователей)
+      } else {
+        console.log('не вставляем, уже есть');
       }
     } else {
       console.log('else - третий вариант ? неизвестно');
@@ -74,8 +92,21 @@ export default function addUsers(data) {
     users.appendChild(divUser);
   });
 
-  console.log(window.api);
-  console.log(window.api.usersAreConnected);
+  // console.log(window.api);
+  // console.log(window.api.usersAreConnected);
+
+  // нужно проверить есть ли YOU на странице
+  if (window.api.you) {
+    const idUsers = document.querySelectorAll('.idUser');
+    console.log(idUsers[0].textContent);
+    idUsers.forEach((elem) => {
+      if (elem.textContent === window.api.you.id) {
+        console.log(elem.textContent);
+        console.log(window.api.you.id);
+        console.log('такой элемент есть, или You уже на странице, добовлять не надо');
+      }
+    });
+  }
 
   if (window.api.you) {
     console.log('You в Api есть');
@@ -113,6 +144,7 @@ export default function addUsers(data) {
   }
 }
 
+// пробовал до этого
 // export default function addUsers(data) {
 //   // console.log('--- Запустилась функция: addUsersAndMessageToChat.js');   // console.log(data);
 //   if (!Array.isArray(data)) {

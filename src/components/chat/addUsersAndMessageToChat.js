@@ -1,4 +1,3 @@
-// import messageToChat from './messageToChat';
 import messageToChat from './messageToChat';
 import addUsers from './addUsers';
 import addUsersFromApi from './addUsersFromApi';
@@ -14,7 +13,6 @@ export default function addUsersAndMessageToChat(data, e) {
 
   if (!Array.isArray(data)) {
     // console.log('data - не массив, значит сообщение в чат!!!');
-
     // window.api.usersAreConnected = []; // обнуляем список сохранённых подключенных пользователей
     // console.log(window.api.usersAreConnected);
     messageToChat(data); // добавляем сообщение в чат

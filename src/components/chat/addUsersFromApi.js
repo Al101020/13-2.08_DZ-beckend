@@ -1,12 +1,13 @@
-const users = document.querySelector('#users');
+const userS = document.querySelector('#users');
+const users = document.querySelectorAll('.user');
+console.log(users);
+
 export default function addUsersFromApi(usersAreConnected) {
   console.log('--- Запустилась функция: addUsersFromApi.js');
   // console.log(window.api.usersAreConnected.length);
-  // console.log(usersAreConnected);
-  const users_ = document.querySelectorAll('.user');
-  console.log(users_);
+  // console.log(usersAreConnecte
 
-  if (window.api.usersAreConnected.length === 0 && users_.length === 0) {
+  if (window.api.usersAreConnected.length === 0 && users.length === 0) {
     console.log('подключенных пользователей нет в api, вернём');
     usersAreConnected.forEach((elem) => {
       window.api.usersAreConnected.push(elem);
@@ -17,7 +18,7 @@ export default function addUsersFromApi(usersAreConnected) {
   // console.log(window.api.usersAreConnected);
 
   if (users.length === 0) {
-    console.log(users_);
+    console.log(users);
     console.log('--- пользователей на странице нет');
   }
 
@@ -43,7 +44,7 @@ export default function addUsersFromApi(usersAreConnected) {
     idUser.textContent = window.api.usersAreConnected[i].id;
     divUser.appendChild(idUser);
 
-    users.appendChild(divUser);
+    userS.appendChild(divUser);
   }
 
   if (window.api.you) {
@@ -80,9 +81,10 @@ export default function addUsersFromApi(usersAreConnected) {
     nameYou.textContent = window.api.you.name;
     divYou.appendChild(nameYou);
 
-    users.appendChild(divYou);
+    userS.appendChild(divYou);
   }
 }
+// const users_ = document.querySelectorAll('.user'); c// onsole.log(users_)о // пусто
 
 // export default function addUsersFromApi(usersAreConnected) {
 //   console.log('--- Запустилась функция: addUsersFromApi.js');

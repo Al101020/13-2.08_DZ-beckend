@@ -11,18 +11,21 @@ const users = document.querySelector('#users'); // console.log(users); // ещё
 const ws = new WebSocket('ws://localhost:3000/ws'); // console.log(ws);
 
 // --- подписываемся на закрытие окна: пытаемся отключится.
-// window.addEventListener('beforeunload', (event) => {
-// event.preventDefault();
-// ws.send(
-//   JSON.stringify({
-//     type: 'exit',
-//     user: {
-//       id: window.api.you.id,
-//       name: window.api.you.name,
-//     },
-//   }),
-// );
-// }); // --- конец закрытие окна
+window.addEventListener('beforeunload', (event) => {
+  event.preventDefault();
+
+  // if (window.api.you) {}
+
+  // ws.send(
+  //   JSON.stringify({
+  //     type: 'exit',
+  //     user: {
+  //       // id: window.api.you.id,
+  //       name: window.api.you.name,
+  //     },
+  //   }),
+  // );
+}); // --- конец закрытие окна
 
 ws.addEventListener('open', (e) => {
   console.log(e); // console.log(e.data);
