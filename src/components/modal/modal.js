@@ -1,5 +1,6 @@
 import './modal.css';
 import UserStateApi, { infoError } from '../chat/UserStateApi';
+// import addUsersFromApi from '../chat/addUsersFromApi';
 
 // console.log(infoError);
 
@@ -31,6 +32,15 @@ const btnModal = document.createElement('button');
 btnModal.classList.add('btn-modal');
 btnModal.textContent = 'Продолжить';
 
+// // Здесь нужно вставить функцию для проверки объекта в массиве:
+// function isInArray(id, arr) {
+//   if (arr.some((e) => e.id === id)) {
+//     return true;
+//   }
+//   return false;
+// }
+// //
+
 btnModal.addEventListener('click', (e) => {
   e.preventDefault();
   const textInput = document.querySelector('.input-text-modal');
@@ -53,18 +63,35 @@ btnModal.addEventListener('click', (e) => {
 
           return;
         }
-        // if (window.api.you) {
-        //   console.log(window.api.you);
-        // }
+
         fullScreen.classList.add('displayNone');
         divModal.classList.add('displayNone');
 
+        // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+        if (window.api.you) {
+          console.log(window.api.you);
+        }
+
         const divUsers = document.querySelector('#users');
 
-        // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
         // нужно проверить есть ли YOU в window.api.usersAreConnected , window.api.you
+
+        // // Здесь нужно вставить функцию для проверки объекта в массиве:
+        // function isInArray(id, arr) {
+        //   if (arr.some((e) => e.id === id)) {
+        //     return true;
+        //   }
+        //   return false;
+        // }
+        // //
+
+        const users = document.querySelectorAll('.user');
+        console.log(users);
+
         if (window.api.you) {
+          // было
           // console.log('You в Api есть');
+          // if (window.api.you && isInArray(window.api.you.id, arr)) {
           // console.log(window.api.usersAreConnected);
 
           const divYou = document.createElement('div'); // добавляем себя - 'You'
@@ -97,6 +124,9 @@ btnModal.addEventListener('click', (e) => {
         } else {
           console.log('You в Api нет');
         }
+
+        // const { usersAreConnected } = window.api; // console.log(usersAreConnected);
+        // addUsersFromApi(usersAreConnected);
       }, 500);
     } catch (err) {
       console.error(err);

@@ -15,13 +15,14 @@ function timeDate(date) {
 
 export default function messageToChat(data) {
   //   console.log('--- запустился - messageToChat.js');
+  // console.log(window.api);
 
-  if (data.user.name !== window.api.you.name) {
+  // if (data.user.name !== window.api.you.name) {
+  if (window.api.you === null || data.user.name !== window.api.you.name) {
     // console.log(data);
     // console.log('НЕТ, это сообщение не моё, нужно выставить сообщение в чат');
 
-    const chatMessages = document.querySelector('.messages');
-    console.log(chatMessages);
+    const chatMessages = document.querySelector('.messages'); // console.log(chatMessages);
 
     const message = document.createElement('div'); // создаём сообщение
 
